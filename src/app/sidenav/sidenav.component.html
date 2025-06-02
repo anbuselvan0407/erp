@@ -1,0 +1,263 @@
+<mat-drawer-container class="example-container">
+  <!-- <mat-drawer class="sid" mode="side" opened>
+    <mat-toolbar color="primary">
+      <mat-icon class="schoolicon " aria-hidden="false" aria-label="Example home icon" fontIcon="school"></mat-icon>
+      <span>  ABC School</span>
+    </mat-toolbar> -->
+    <!-- <mat-list>
+     <mat-list-item class="matlist1"><mat-icon class="schoolicon " aria-hidden="false" aria-label="Example home icon" fontIcon="space_dashboard"></mat-icon>Dashboard</mat-list-item>
+     <mat-divider></mat-divider>
+     <div>
+     <mat-list-item class="matlist2"><p class="feature">Features</p></mat-list-item>
+      <mat-list-item> <p><mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="auto_stories"></mat-icon>Stories</p></mat-list-item>
+      <mat-list-item> <p><mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="news"></mat-icon>News</p></mat-list-item>
+      <mat-list-item> <p><mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="quiz"></mat-icon>Quizzes</p></mat-list-item>
+     </div>
+     <mat-divider></mat-divider>
+     <mat-list-item>Item 3</mat-list-item>
+    </mat-list> -->
+    <!-- <ul>
+      <li>Dashboard</li>
+      <hr class="sidebar-divider">
+      <p>Features</>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul> -->
+  <!-- </mat-drawer> -->
+    <mat-drawer #drawer class="sid" mode="side" opened>
+      <mat-toolbar color="primary">
+        <mat-icon fontIcon="school"></mat-icon>
+        <span>ABC School</span>
+      </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
+        <div style="display: flex; align-items: center;">
+          <mat-icon>dashboard</mat-icon>
+          <span class="nav-text">Dashboard</span>
+        </div>
+      </a>
+      <a mat-list-item routerLink="/students" routerLinkActive="active-link">
+        <div style="display: flex; align-items: center;">
+        <mat-icon>people</mat-icon>
+        <span class="nav-text">Students</span>
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/staff" routerLinkActive="active-link">
+        <div style="display: flex; align-items: center;">
+        <mat-icon>person</mat-icon>
+        <span class="nav-text">Staff</span>
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/attendance" routerLinkActive="active-link">
+        <div style="display: flex; align-items: center;">
+        <mat-icon>event</mat-icon>
+        <span class="nav-text">Attendance</span>
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/reports" routerLinkActive="active-link">
+        <div style="display: flex; align-items: center;">
+        <mat-icon>bar_chart</mat-icon>
+        <span class="nav-text">Reports</span>
+        </div>
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+  
+  <mat-drawer-content>
+
+    <app-header> </app-header>
+
+
+    <div class="cnt">
+          
+      
+          <div class="homdash" style="margin-bottom:10px"> 
+            <h1 style="color:grey; display:inline">Dashboard</h1>
+            <div style="padding-top:5px">
+              <a style="margin-right:5px"href='./dashboard'>Home</a>
+              <span style="margin-right:15px">/ Dashboard</span>
+            </div>
+          </div>
+        
+          <div class="flex-cad">
+            
+                      <div class="card">
+                        <div class="crdcont">
+                          <div style="color:black; font-weight:400px">Student guide</div>
+                        </div>
+                        <div class="crdicon">
+                        
+                        </div>
+                      </div>      
+                    
+                      <div class="card">
+                        <div class="crdcont">
+                          <div style="color:black">Courses</div>
+                        </div>
+                        <div class="crdicon">
+                        
+                        </div>
+                      </div>
+                    
+                      <div class="card">
+                        <div class="crdcont">
+                          <div style="color:black">Student guide</div>
+                        </div>
+                        <div class="crdicon">
+                        
+                        </div>
+                      </div> 
+                    
+                    
+                      <div class="card">
+                        <div class="crdcont">
+                          <div style="color:black">Exams</div>
+                        </div>
+                        <div class="crdicon">
+                        
+                        </div>
+                      </div>
+          
+          </div>
+
+          <div style="display:flex; margin-top:40px; margin-right:50px; justify-content:space-between">
+
+          
+          <span class="table"style=" border:none ;">
+          <table mat-table [dataSource]="dataSource" style="border:1px solid grey ">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->primary
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                      <th style="background-color:#3f51b5" mat-header-cell *matHeaderCellDef> No. </th>
+                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                      <th style="background-color:#3f51b5" mat-header-cell *matHeaderCellDef> Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                      <th style="background-color:#3f51b5" mat-header-cell *matHeaderCellDef> Weight </th>
+                      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                      <th style="background-color:#3f51b5" mat-header-cell *matHeaderCellDef> Symbol </th>
+                      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          </span>
+
+          
+            <!--  <div style="padding:20px; display:flex; justify-content:space-between" >
+               <span style="font-weight:bold; color:#3f51b5">Course sold</span> 
+              <div> -->
+                <div class="products-sold-card">
+                      <div class="card-header">
+                        <span>Products Sold</span>
+                        <select class="filter-dropdown">
+                          <option>Month</option>
+                          <option>Week</option>
+                          <option>Day</option>
+                        </select>
+                      </div>
+                    
+                      <div class="product">
+                        <div class="label">
+                          <span>Object oriented programing</span>
+                          <span>600 of 800 Items</span>
+                        </div>
+                        <div class="progress-bar orange" style="width: 75%;"></div>
+                      </div>
+                    
+                      <div class="product">
+                        <div class="label">
+                          <span>Problem solving</span>
+                          <span>500 of 800 Items</span>
+                        </div>
+                        <div class="progress-bar green" style="width: 75%;"></div>
+                      </div>
+                    
+                      <div class="product">
+                        <div class="label">
+                          <span>Artificial Inteligence</span>
+                          <span>455 of 800 Items</span>
+                        </div>
+                        <div class="progress-bar red" style="width: 75%;"></div>
+                      </div>
+                    
+                      <div class="product">
+                        <div class="label">
+                          <span>Machine Learning</span>
+                          <span>400 of 800 Items</span>
+                        </div>
+                        <div class="progress-bar blue" style="width: 75%;"></div>
+                      </div>
+                    
+                      <div class="product">
+                        <div class="label">
+                          <span>Cloud Computing</span>
+                          <span>200 of 800 Items</span>
+                        </div>
+                        <div class="progress-bar green" style="width: 75%;"></div>
+                      </div>
+                    
+                      <div class="view-more">View More →</div>
+                </div>
+
+                <!-- <mat-form-field class="small-select" style="overflow:hidden; z-zindex:+1">
+                  <mat-label>Favorite food</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">style="color:SlateBlue"
+                      {{ food.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+                <!--                 
+                <form action="/action_page.php">
+            
+                  <select name="cars" id="cars" style="background-color:#3f51b5; color:white; border:1px solid black">
+                  
+                    <option value="volvo">Month</option>
+                    <option value="saab">January</option>
+                    <option value="opel">February</option>
+                    <option value="audi">March</option>
+                    <option value="audi">April</option>
+                    <option value="audi">May</option>
+                    <option value="audi">June</option>
+                    <option value="audi">July</option>
+                    <option value="audi">July</option>
+                    <option value="audi">August</option>
+                    <option value="audi">September</option>
+                    <option value="audi">October</option>
+                    <option value="audi">November</option>
+                    <option value="audi">December</option>
+                  </select>
+                  <br><br>
+                  
+                </form> -->
+
+              
+          
+        </div>  
+
+    </div>
+    
+  </mat-drawer-content>
+</mat-drawer-container>
