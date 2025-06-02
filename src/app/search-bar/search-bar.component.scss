@@ -1,0 +1,49 @@
+.header-search-container {
+    display: flex;
+    align-items: center;
+     margin-right:30px;
+    
+    // Add margin if needed to space it from other header elements
+    // margin-left: 20px;
+}
+
+#headerSearchInput {
+    padding: 8px 12px;
+    
+    border-radius: 20px; // Rounded corners
+    outline: none;
+    font-size: 15px;
+    width: 200px; // Adjust width as needed
+    background-color: rgb(255, 255, 255); // Slightly transparent background
+    color: rgba(12, 11, 11, 0.877);
+    caret-color: #61dafb; // Cursor color
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); // Inner shadow
+    transition: width 0.3s ease; // Smooth width transition on focus
+     border:1px solid black;
+}
+
+#headerSearchInput::placeholder {
+    color: #434344b3
+}
+
+#headerSearchInput:focus {
+    width: 250px; // Expand slightly on focus
+    background-color: rgb(255, 255, 255);
+     border:1px solid black;
+}
+
+#headerSearchButton {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-left: -35px; // Pull the icon visually into the input field
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+    
+}
+
+#headerSearchButton:hover {
+    color: #dfe1e6; // Example hover color
+}

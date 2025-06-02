@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 
@@ -32,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     SignupComponent,
     DashboardComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    SearchBarComponent,
     
   ],
   imports: [
@@ -50,6 +53,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatGridListModule,
     MatTableModule,
     MatSelectModule,
+     FormsModule,
     
     // RouterModule.forRoot(routes),
     BrowserAnimationsModule

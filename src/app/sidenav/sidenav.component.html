@@ -73,10 +73,10 @@
 
     <app-header> </app-header>
 
-
+    <!-- this is container in sidnav content//////////////////////////////////////////////////////////////////////////////-->
     <div class="cnt">
           
-      
+      <!-- //////////  this is home/ dashboard //////////////////////////////////////////////////////////////////////////////////////-->
           <div class="homdash" style="margin-bottom:10px"> 
             <h1 style="color:grey; display:inline">Dashboard</h1>
             <div style="padding-top:5px">
@@ -88,47 +88,72 @@
           <div class="flex-cad">
             
                       <div class="card">
-                        <div class="crdcont">
-                          <div style="color:black; font-weight:400px">Student guide</div>
-                        </div>
-                        <div class="crdicon">
+                        <!-- <div class="crdcont">
+                          <div style="color:black; font-weight:400px">Student guide</div>                                                              
+                        </div>                                                              
+                        <div class="crdicon">                                                              
+                                                                                      
+                        </div>-->
                         
-                        </div>
-                      </div>      
-                    
-                      <div class="card">
-                        <div class="crdcont">
-                          <div style="color:black">Courses</div>
-                        </div>
-                        <div class="crdicon">
-                        
-                        </div>
-                      </div>
-                    
-                      <div class="card">
-                        <div class="crdcont">
-                          <div style="color:black">Student guide</div>
-                        </div>
-                        <div class="crdicon">
-                        
-                        </div>
-                      </div> 
-                    
-                    
-                      <div class="card">
-                        <div class="crdcont">
-                          <div style="color:black">Exams</div>
-                        </div>
-                        <div class="crdicon">
-                        
-                        </div>
-                      </div>
-          
+  
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col mr-2">
+          <div class="text-xs fw-bold text-uppercase text-muted mb-1">
+            Earnings (Monthly)
+          </div>
+          <div class="h5 mb-0 fw-bold text-gray-800">$40,000</div>
+          <div class="mt-2 mb-0 text-muted text-xs">
+            <span class="text-success me-2">
+              <i class="fa fa-arrow-up"></i> 3.48%
+            </span>
+            <span>Since last month</span>
+          </div>
+        </div>
+        <div class="col-auto">
+          <i class="fa fa-calendar fa-2x text-primary"></i>
+        </div>
+      </div>
+    </div>
+ 
+
+
+                      </div>                                                                    
+                                                                                  
+                      <div class="card">                                                              
+                        <div class="crdcont">                                                              
+                          <div style="color:black">Courses</div>  
+                          <i class="fas fa-arrow-up " style="color:green"></i>                                                            
+                        </div>                                                              
+                        <div class="crdicon">                                                              
+                                                                                      
+                        </div>                                                              
+                      </div>                                                              
+                                                                                  
+                      <div class="card">                                                              
+                        <div class="crdcont">                                                              
+                          <div style="color:black">Student guide</div>                                                              
+                        </div>                                                              
+                        <div class="crdicon">                                                              
+                                                                                      
+                        </div>                                                              
+                      </div>                                                               
+                                                                                  
+                                                                                  
+                      <div class="card">                                                              
+                        <div class="crdcont">                                                              
+                          <div style="color:black">Exams</div>                                                              
+                        </div>                                                              
+                        <div class="crdicon">                                                              
+                                                                                      
+                        </div>                                                              
+                      </div>                                                              
+                                                                        
           </div>
 
           <div style="display:flex; margin-top:40px; margin-right:50px; justify-content:space-between">
 
-          
+          <!-- /////// thi is table ////////////////////////////////////////////////////////////////////////////////////////////// -->
           <span class="table"style=" border:none ;">
           <table mat-table [dataSource]="dataSource" style="border:1px solid grey ">
 
@@ -166,8 +191,10 @@
 
           
             <!--  <div style="padding:20px; display:flex; justify-content:space-between" >
-               <span style="font-weight:bold; color:#3f51b5">Course sold</span> 
-              <div> -->
+               <span style="font-weight:bold; color:#3f51b5">Course sold</span>       
+              
+               product sold csrd///////////////////////////////////////////////////////////////////////////////////////////////////
+               <div> -->
                 <div class="products-sold-card">
                       <div class="card-header">
                         <span>Products Sold</span>
@@ -221,7 +248,7 @@
                       <div class="view-more">View More →</div>
                 </div>
 
-                <!-- <mat-form-field class="small-select" style="overflow:hidden; z-zindex:+1">
+                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////<mat-form-field class="small-select" style="overflow:hidden; z-zindex:+1">
                   <mat-label>Favorite food</mat-label>
                   <mat-select>
                     <mat-option *ngFor="let food of foods" [value]="food.value">style="color:SlateBlue"

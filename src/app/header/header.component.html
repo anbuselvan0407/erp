@@ -6,19 +6,5 @@
   <span class="spacer"></span>
 
   <!-- Search bar -->
-  <div appearance="outline" class="search-bar" >
-    
-    <!-- <input matInput (keyup)="onSearch($event.target.value)" placeholder="Search..."> -->
-    <input #searchInput matInput (keyup)="onSearch(searchInput.value)" placeholder="Search...">
-    
-
-    
-  </div>
-  <button mat-icon-button matSuffix>
-    <mat-icon>search</mat-icon>
-  </button>
-  <!-- Profile Dropdown -->
-
-
-
+   <app-search-bar (search)="handleSearch($event)"></app-search-bar> 
 </mat-toolbar>

@@ -1,0 +1,12 @@
+
+<div class="header-search-container">
+    <input
+        type="text"
+        id="headerSearchInput"
+        placeholder="Search courses..."
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch()"
+    >
+    <button id="headerSearchButton" (click)="onSearch()">
+        <i class="fas fa-search"></i> </button>
+</div>

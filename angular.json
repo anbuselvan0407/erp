@@ -67,16 +67,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "erp:build:production"
+              "browserTarget": "erp:build:production"
             },
             "development": {
-              "buildTarget": "erp:build:development"
+              "browserTarget": "erp:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+        "extract-i16n": {
+          "builder": "@angular-devkit/build-angular:extract-i16n",
           "options": {
             "buildTarget": "erp:build"
           }
