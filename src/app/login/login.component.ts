@@ -13,17 +13,30 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 loginForm!: FormGroup;
 
+  private validCredentials = {
+    email: 'anbu@email.com',
+    password: 'hello123'
+  };
+
 constructor(private fb: FormBuilder,private router:Router,)
 {
-  this.loginForm = this.fb.group({email: ['', Validators.required],password: ['', Validators.required]})
+  this.loginForm = this.fb.group({email: ['', [Validators.required,Validators.email]],password: ['', Validators.required]})
 }
 
 imageUrl = '/assets/images/space.jpg';
 
-onSubmit(){
- alert("button clicked");
-  this.router.navigate(['/dashboard'])
-}
+ onSubmit() {
+    if (this.loginForm.invalid) return;
+
+    const formValue = this.loginForm.value;
+    
+    if (formValue.email === this.validCredentials.email && 
+        formValue.password === this.validCredentials.password) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      alert('Invalid credentials!');
+    }
+  }
 
 
 login(){

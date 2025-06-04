@@ -5,6 +5,25 @@
 </div>
   <span class="spacer"></span>
 
-  <!-- Search bar -->
-   <app-search-bar (search)="handleSearch($event)"></app-search-bar> 
+  <!-- Search bar  <mat-icon >menu</mat-icon>    (click)="logout()"  -->
+   <app-search-bar (search)="handleSearch($event)"></app-search-bar>
+   <span>
+    <div style="color:white; height:40px; width:1px; border:1px solid white; margin-bottom:10px; margin-left:0px; margin-right:20px" ></div>
+   </span>
+   <div>
+    <a>
+      <img matButton [matMenuTriggerFor]="menu" src="/assets/images/profile.png" width="30" height="30" style="border-radius:50%">
+      <mat-menu #menu="matMenu">
+      <ng-template matMenuContent>
+        <button mat-menu-item><mat-icon >settings</mat-icon> Settings</button>
+        <button mat-menu-item><mat-icon >help</mat-icon> Help</button>
+        <button mat-menu-item><mat-icon >history_toggle_off</mat-icon> Activity log</button>
+        <div>
+        <button mat-menu-item (click)="logout()" class="logout-item"><mat-icon>logout</mat-icon> Log out</button>
+        </div>
+      </ng-template>
+      </mat-menu>
+    </a>
+    <span style="font-weight:normal; margin-left:10px; margin-right:20px; font-size:15px">Charlotte </span>
+   </div>
 </mat-toolbar>

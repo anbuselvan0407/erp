@@ -112,8 +112,10 @@ mat-icon {
 .card{
   height:100px;
   width:300px;
+  padding:20px;
+  padding-top:30px;
   color:white;
-  align-items:center;
+  align-items:left;
   justify-content:center;
 }
 
@@ -220,15 +222,3 @@ mat-icon {
 
 
 
-
-.fas{
-    font-weight: 900;
-    font-family: "Font Awesome 5 Free";
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-
-}

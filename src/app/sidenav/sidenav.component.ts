@@ -21,7 +21,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
   {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
   {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
   {position: 6, name: 'boron', weight: 10.811, symbol: 'B'}
 ];
 

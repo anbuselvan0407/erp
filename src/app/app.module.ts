@@ -23,6 +23,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StudentComponent } from './student/student.component';
+import { StaffComponent } from './staff/staff.component';
 
 
 
@@ -36,6 +40,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     HeaderComponent,
     SidenavComponent,
     SearchBarComponent,
+    StudentComponent,
+    StaffComponent
     
   ],
   imports: [
@@ -53,7 +59,11 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatGridListModule,
     MatTableModule,
     MatSelectModule,
-     FormsModule,
+    FormsModule,
+    MatMenuModule,
+    MatDialogModule,
+    
+    
     
     // RouterModule.forRoot(routes),
     BrowserAnimationsModule
