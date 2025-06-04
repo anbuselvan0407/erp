@@ -27,7 +27,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { StudentComponent } from './student/student.component';
 import { StaffComponent } from './staff/staff.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -62,7 +62,7 @@ import { StaffComponent } from './staff/staff.component';
     FormsModule,
     MatMenuModule,
     MatDialogModule,
-    
+    HttpClientModule ,
     
     
     // RouterModule.forRoot(routes),
