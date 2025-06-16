@@ -69,3 +69,16 @@ app-header{
 mat-drawer-content {
   height: 100%;
 }
+
+.homdash{
+  display:flex;
+  justify-content:space-between;
+  margin:30px;
+}
+
+.table{
+  margin:0px 30px 40px 20px;
+  width:65%;
+  display:inline-block;
+  
+}

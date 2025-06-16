@@ -1,28 +1,18 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, OnInit, Component } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { DrawerService } from '../drawer.service';
 import { ViewChild } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { ChangeDetectorRef } from '@angular/core';
+import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
-export interface PeriodicElement {
+export interface Student {
+  id: number;
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  age: number;
+  grade: string;
 }
-
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'boron', weight: 10.811, symbol: 'B'}
-];
 
 
 @Component({
@@ -31,18 +21,62 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./sidenav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidenavComponent {
-@ViewChild('drawer') drawer!: MatDrawer;
+export class SidenavComponent implements OnInit {
+  @ViewChild('drawer') drawer!: MatDrawer;
 
-  constructor(private drawerService: DrawerService) {}
-   
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['id', 'name', 'age', 'grade'];
+  dataSource: Student[] = [];
 
+  constructor(
+    private drawerService: DrawerService,
+    private apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
+    this.loadStudentData();
+    this.setupDrawerToggle();
+  }
+
+  openAddStudentDialog() {
+  const dialogRef = this.dialog.open(AddStudentDialogComponent, {
+    width: '400px',
+    panelClass: 'custom-dialog-container'
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      // Result contains form data
+      this.apiService.createStudent(result).subscribe({
+        next: (newStudent: Student) => {
+          this.dataSource = [...this.dataSource, newStudent];
+          this.cdr.markForCheck();
+        },
+        error: (err) => console.error('Error adding student:', err)
+      });
+    }
+  });
+}
+
+
+  loadStudentData() {
+    this.apiService.getStudents().subscribe({
+      next: (data: Student[]) => {
+        console.log(data);
+        this.dataSource = data;
+        this.cdr.markForCheck();
+        
+      },
+      error: (err: any) => {
+        console.error('Error fetching student data:', err);
+      },
+    });
+  }
+
+  setupDrawerToggle() {
     this.drawerService.drawerToggle$.subscribe(() => {
       this.drawer.toggle(); // or .close()
     });
   }
-} 
+}

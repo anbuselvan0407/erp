@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:3000/api'; // Your Express server URL
+const API_URL = 'http://localhost:3000/'; // Your Express server URL
 
 @Injectable({
   providedIn: 'root'
@@ -24,16 +24,19 @@ export class ApiService {
   }
 
   // Student CRUD
-  getStudents(): Observable<any> {
-    return this.http.get(`${API_URL}/students`);
+  getStudents(): Observable<any[]> {
+    return this.http.get<any[]>(`${API_URL}/`);
   }
 
   createStudent(studentData: any): Observable<any> {
-    return this.http.post(`${API_URL}/students`, studentData);
+    return this.http.post(`${API_URL}students`, studentData);
+
   }
 
   // Staff CRUD
-  getStaff(): Observable<any> {
-    return this.http.get(`${API_URL}/staff`);
+  getStaff(): Observable<any[]> {
+    return this.http.get<any[]>(`${API_URL}staff`);
   }
+
+  
 }

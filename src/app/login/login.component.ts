@@ -14,10 +14,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
 loginForm!: FormGroup;
 
-  private validCredentials = {
-    email: 'anbu@email.com',
-    password: 'hello123'
-  };
+
 
 constructor(private fb: FormBuilder,private auth: AuthService,private router:Router,)
 {
@@ -32,6 +29,7 @@ imageUrl = '/assets/images/space.jpg';
       this.auth.login(this.loginForm.value).subscribe({
         next: (res: any) => {
           this.auth.storeToken(res.token);
+
           alert('Login successful!');
           this.router.navigate(['/dashboard']);
         },

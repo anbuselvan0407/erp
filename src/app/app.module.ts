@@ -28,6 +28,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { StudentComponent } from './student/student.component';
 import { StaffComponent } from './staff/staff.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AddStudentDialogComponent } from './add-student-dialog/add-student-dialog.component';
+
 
 
 
@@ -41,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidenavComponent,
     SearchBarComponent,
     StudentComponent,
-    StaffComponent
+    StaffComponent,
+    AddStudentDialogComponent    
     
   ],
   imports: [
@@ -63,13 +69,21 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatDialogModule,
     HttpClientModule ,
-    
+    CommonModule,
+   
     
     // RouterModule.forRoot(routes),
     BrowserAnimationsModule
   ],
    exports: [RouterModule],
-  providers: [],
+providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ]
+,
   bootstrap: [AppComponent],
 
 
