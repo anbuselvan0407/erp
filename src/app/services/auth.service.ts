@@ -1,12 +1,12 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { jwtDecode } from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private API = 'http://localhost:300032';
+  private API = 'http://localhost:3000';
 
   constructor(
     private http: HttpClient,
@@ -34,9 +34,19 @@ export class AuthService {
     return null;
   }
 
-  isLoggedIn(): boolean {
-    return !!this.getToken();
+isLoggedIn(): boolean {
+  const token = this.getToken();
+  if (!token) return false;
+
+  try {
+    const decoded: any = jwtDecode(token);
+    const exp = decoded.exp;
+    const now = Math.floor(Date.now() / 1000);
+    return exp > now;
+  } catch (error) {
+    return false;
   }
+}
 
   logout() {
     if (isPlatformBrowser(this.platformId)) {
@@ -44,13 +54,25 @@ export class AuthService {
     }
   }
 
-  
+getUserRole(): string | null {
+  const token = this.getToken();
+  if (!token) return null;
+
+  try {
+    const decoded = JSON.parse(atob(token.split('.')[1]));
+    return decoded.role || null;
+  } catch (error) {
+    return null;
+  }
+}
+
+
 
 getCurrentUser() {
   const token = this.getToken();
   console.log('Token used:', token);
 
-  return this.http.get(`${this.API}/auth/me`, {
+  return this.http.get<any>(`${this.API}/auth/me`, {
     headers: {
       Authorization: `Bearer ${token}`
     }

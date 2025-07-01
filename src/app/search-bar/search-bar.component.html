@@ -1,12 +1,20 @@
-
+<div class="hsc">
 <div class="header-search-container">
     <input
         type="text"
         id="headerSearchInput"
         placeholder="Search courses..."
+        
         [(ngModel)]="searchTerm"
         (keyup.enter)="onSearch()"
     >
+
     <button id="headerSearchButton" (click)="onSearch()">
-        <i class="fas fa-search" style="color:rgb(41, 41, 175)ary"></i> </button>
+        <i class="fas fa-search" style="color:grey"></i> </button>
 </div>
+  <!-- <div class="item">
+    <ul>
+    <li *ngFor="let item of itemList | filter:seearch">{{ item }}</li>
+    </ul>[(ngModel)]="seearch"
+  </div>
+</div> -->

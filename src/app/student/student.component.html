@@ -1,49 +1,115 @@
 <mat-drawer-container class="example-container">
 <mat-drawer #drawer class="sid" mode="side" opened>
-      <mat-toolbar color="primary">
-        <mat-icon fontIcon="school"></mat-icon>
-        <span>ABC School</span>
-      </mat-toolbar>
+  <mat-toolbar color="primary">
+    <mat-icon fontIcon="school"></mat-icon>
+    <span>ABC School</span>
+  </mat-toolbar>
 
-    <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" >
-        <div style="display: flex; align-items: center;">
-          <mat-icon>dashboard</mat-icon>
-          <span class="nav-text">Dashboard</span>
-        </div>
-      </a>
-      <a mat-list-item routerLink="/student" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+  <mat-nav-list>
+
+    <!-- All roles can access dashboard -->
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
+        <mat-icon>dashboard</mat-icon>
+        <span class="nav-text">Dashboard</span>
+      </div>
+    </a>
+
+    <!-- Admin and Student -->
+    <a *ngIf="role === 'admin' || role === 'student'" mat-list-item routerLink="/student" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>people</mat-icon>
         <span class="nav-text">Students</span>
-        </div>
-      </a>
+      </div>
+    </a>
 
-      <a mat-list-item routerLink="/staff" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+    <!-- Admin and Staff -->
+    <a *ngIf="role === 'admin' || role === 'staff'" mat-list-item routerLink="/staff" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>person</mat-icon>
         <span class="nav-text">Staff</span>
-        </div>
-      </a>
+      </div>
+    </a>
 
-      <a mat-list-item routerLink="/attendance" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+    <!-- Admin only -->
+    <a *ngIf="role === 'admin'" mat-list-item routerLink="/attendance" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>event</mat-icon>
         <span class="nav-text">Attendance</span>
-        </div>
-      </a>
+      </div>
+    </a>
 
-      <a mat-list-item routerLink="/reports" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+    <a *ngIf="role === 'admin'" mat-list-item routerLink="/reports" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>bar_chart</mat-icon>
         <span class="nav-text">Reports</span>
-        </div>
-      </a>
-    </mat-nav-list>
-  </mat-drawer>
+      </div>
+    </a>
+
+  </mat-nav-list>
+</mat-drawer>
+
   <mat-drawer-content style="background-color:pink">
 
     <app-header> </app-header>
+    <div class="cnt">
+
+          <!--stuents///////////////////////////////////////////////////////////////////////////////////////////-->
+          <div class="homdash" style="margin-bottom:10px">
+            <h1 style="color:dark-grey; display:inline" appHighlight="blue">Students</h1>
+            <div style="padding-top:5px">
+              <a style="margin-right:5px"href='./dashboard'>Home</a>
+              <span style="margin-right:15px">/ Students</span>
+            </div>
+          </div>
+
+          <hr style="margin-bottom:30px">
+
+
+          <!--/////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <div class="container-2">
+          <app-dragndrop></app-dragndrop>
+          <div>
+          <h2 style="margin-left:50px">Student Form</h2>
+          <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="simple-form">
+              <label>
+                Name:
+                <input type="text" formControlName="name" />
+              </label>
+            
+              <label>
+                Age:
+                <input type="number" formControlName="age" />
+              </label>
+            
+              <label>
+                Grade:
+                <input type="text" formControlName="grade" />
+              </label>
+            
+              <button type="submit" [disabled]="!studentForm.valid">Submit</button>
+              </form>
+            </div>
+        </div>
+
+
+        <div class="repeat">
+          <h2>Custom *appRepeat Directive Demo</h2>
+
+          <div *appRepeat="4">
+            <p>This line will repeat!</p>
+          </div>
+          <ng-template [appRepeat]="4">
+            <div>
+              <p>This line will repeat!</p>
+            </div>
+          </ng-template>
+        </div>
+
+
+          
+
+    </div>
   </mat-drawer-content>
 <mat-drawer-container>
 <p>student works!</p>

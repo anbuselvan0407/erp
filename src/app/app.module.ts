@@ -32,6 +32,22 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddStudentDialogComponent } from './add-student-dialog/add-student-dialog.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { DragndropComponent } from './dragndrop/dragndrop.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {
+  CdkDrag,
+  CdkDropList,
+} from '@angular/cdk/drag-drop';
+import {NgFor} from '@angular/common';
+import { HighlightDirective } from './highlight.directive';
+import { RepeatDirective } from './directives/repeat.directive';
+import { FilterPipe } from './pipes/filter.pipe';
+import { UsernamecasePipe } from './pipes/usernamecase.pipe';
+import { StudentFormComponent } from './student-form/student-form.component';
+import { TableComponent } from './table/table.component';
+
+
 
 
 
@@ -47,8 +63,15 @@ import { AddStudentDialogComponent } from './add-student-dialog/add-student-dial
     SearchBarComponent,
     StudentComponent,
     StaffComponent,
-    AddStudentDialogComponent    
-    
+    AddStudentDialogComponent,
+    DragndropComponent,
+    HighlightDirective,
+    RepeatDirective,
+    FilterPipe,
+    UsernamecasePipe,
+    StudentFormComponent,
+    TableComponent
+
   ],
   imports: [
     BrowserModule,
@@ -70,9 +93,13 @@ import { AddStudentDialogComponent } from './add-student-dialog/add-student-dial
     MatDialogModule,
     HttpClientModule ,
     CommonModule,
-   
-    
-    // RouterModule.forRoot(routes),
+    MatTableModule,
+    MatPaginatorModule,
+    DragDropModule,
+
+    CdkDrag,
+    CdkDropList,
+    NgFor,
     BrowserAnimationsModule
   ],
    exports: [RouterModule],

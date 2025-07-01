@@ -9,7 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddStudentDialogComponent {
   studentForm: FormGroup;
+  submitted = false;
 
+  
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<AddStudentDialogComponent>,
@@ -22,17 +24,33 @@ export class AddStudentDialogComponent {
     });
   }
 
+
+
+
+
+
 onSubmit() {
+  this.submitted = true;
+
   if (this.studentForm.valid) {
-    const formValue = this.studentForm.value; 
-    formValue.age = Number(formValue.age);    
+    const formValue = this.studentForm.value;
+    formValue.age = Number(formValue.age);
     this.dialogRef.close(formValue);
   }
 }
 
+  hasUnsavedChanges(): boolean {
+  return this.studentForm.dirty && !this.submitted;
 
-  onCancel() {
-    this.dialogRef.close();
+}
+
+onCancel() {
+  if (this.studentForm.dirty && !this.submitted) {
+    const confirmClose = confirm('You have unsaved changes. Do you really want to discard them?');
+    if (!confirmClose) return;
   }
+  this.dialogRef.close();
+}
+
 }
 

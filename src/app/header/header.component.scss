@@ -34,6 +34,11 @@ input{
 //   border-color:
 // }
 
+@media (max-width: 600px) {
+  .pname {
+    display: none;
+  }
+}
 
 
 

@@ -26,78 +26,88 @@
       <li></li>
     </ul> -->
   <!-- </mat-drawer> -->
-    <mat-drawer #drawer class="sid" mode="side" opened>
-      <mat-toolbar color="primary">
-        <mat-icon fontIcon="school"></mat-icon>
-        <span>ABC School</span>
-      </mat-toolbar>
+<mat-drawer #drawer class="sid" mode="side" opened>
+  <mat-toolbar color="primary">
+    <mat-icon fontIcon="school"></mat-icon>
+    <span>ABC School</span>
+  </mat-toolbar>
 
-    <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
-          <mat-icon>dashboard</mat-icon>
-          <span class="nav-text">Dashboard</span>
-        </div>
-      </a>
-      <a mat-list-item routerLink="/student" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+  <mat-nav-list>
+
+    <!-- All roles can access dashboard -->
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
+        <mat-icon>dashboard</mat-icon>
+        <span class="nav-text">Dashboard</span>
+      </div>
+    </a>
+
+    <!-- Admin and Student -->
+    <a *ngIf="role === 'admin' || role === 'student'" mat-list-item routerLink="/student" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>people</mat-icon>
         <span class="nav-text">Students</span>
-        </div>
-      </a>
+      </div>
+    </a>
 
-      <a mat-list-item routerLink="/staff" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+    <!-- Admin and Staff -->
+    <a *ngIf="role === 'admin' || role === 'staff'" mat-list-item routerLink="/staff" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>person</mat-icon>
         <span class="nav-text">Staff</span>
-        </div>
-      </a>
+      </div>
+    </a>
 
-      <a mat-list-item routerLink="/attendance" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+    <!-- Admin only -->
+    <a *ngIf="role === 'admin'" mat-list-item routerLink="/attendance" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>event</mat-icon>
         <span class="nav-text">Attendance</span>
-        </div>
-      </a>
+      </div>
+    </a>
 
-      <a mat-list-item routerLink="/reports" routerLinkActive="active-link">
-        <div style="display: flex; align-items: center;">
+    <a *ngIf="role === 'admin'" mat-list-item routerLink="/reports" routerLinkActive="active-link">
+      <div style="display: flex; align-items: center;">
         <mat-icon>bar_chart</mat-icon>
         <span class="nav-text">Reports</span>
-        </div>
-      </a>
-    </mat-nav-list>
-  </mat-drawer>
-  
+      </div>
+    </a>
+
+  </mat-nav-list>
+</mat-drawer>
+
+
   <mat-drawer-content>
 
     <app-header> </app-header>
 
     <!-- this is container in sidnav content//////////////////////////////////////////////////////////////////////////////-->
     <div class="cnt">
-          
+
       <!-- //////////  this is home/ dashboard //////////////////////////////////////////////////////////////////////////////////////-->
-          <div class="homdash" style="margin-bottom:10px"> 
+          <div class="homdash" style="margin-bottom:10px">
             <h1 style="color:dark-grey; display:inline">Dashboard</h1>
             <div style="padding-top:5px">
               <a style="margin-right:5px"href='./dashboard'>Home</a>
               <span style="margin-right:15px">/ Dashboard</span>
             </div>
           </div>
-        
+          <hr style="margin-bottom:30px">
+
+
           <div class="flex-cad">
-            
+
                       <div class="card">
                         <!-- <div class="crdcont">
-                          <div style="color:black; font-weight:400px">Student guide</div>                                                              
-                        </div>                                                              
-                        <div class="crdicon">                                                              
-                                                                                      
+                          <div style="color:black; font-weight:400px">Student guide</div>
+                        </div>
+                        <div class="crdicon">
+
                         </div>-->
-                        
-  
-   
-      <div class="row align-items-center" style="display:flex; justify-content:left ">
+
+
+
+      <div class="row align-items-center" style="display:flex; ">
         <div class="col mr-2">
           <div class="h4 text-xs fw-bold text-uppercase text-muted mb-2" style="font-weight:450; font-size:12px">
             Assesments
@@ -114,14 +124,14 @@
          <mat-icon style="color:rgb(136, 47, 136); margin-right:10px; font-size:40px; width:50px; height:50px; line-height:45px">quiz</mat-icon>
         </div>
       </div>
- 
- 
 
 
-                      </div>                                                                    
-                                                                                  
-                      <div class="card">                                                              
-                        <div class="row align-items-center" style="display:flex; justify-content:left ">
+
+
+                      </div>
+
+                      <div class="card">
+                        <div class="row align-items-center" style="display:flex;  ">
         <div class="col mr-2">
           <div class="h4 text-xs fw-bold text-uppercase text-muted mb-2" style="font-weight:450; font-size:12px">
             Enrolls
@@ -137,11 +147,11 @@
         <div class="col-auto" style="color:grey">
           <mat-icon style="color:rgb(83, 180, 83); font-size:40px; width:50px; height:50px; line-height:45px">how_to_reg</mat-icon>
         </div>
-      </div>                                                           
-                      </div>                                                              
-                                                                                  
-                      <div class="card">                                                              
-                        <div class="row align-items-center" style="display:flex; justify-content:left ">
+      </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="row align-items-center" style="display:flex;  ">
         <div class="col mr-2">
           <div class="h4 text-xs fw-bold text-uppercase text-muted mb-2" style="font-weight:450; font-size:12px">
             Courses
@@ -157,12 +167,12 @@
         <div class="col-auto" style="color:grey">
           <mat-icon style="color:rgb(66, 66, 238); margin-right:10px; font-size:40px; width:50px; height:50px; line-height:45px">book_ribbon</mat-icon>
         </div>
-      </div>                                                             
-                      </div>                                                               
-                                                                                  
-                                                                                  
-                      <div class="card">                                                              
-                        <div class="row align-items-center" style="display:flex; justify-content:left ">
+      </div>
+                      </div>
+
+
+                      <div class="card">
+                        <div class="row align-items-center" style="display:flex;  ">
         <div class="col mr-2">
           <div class="h4 text-xs fw-bold text-uppercase text-muted mb-2" style="font-weight:450; font-size:12px">
             Assesments
@@ -176,58 +186,87 @@
           </div>
         </div>
         <div class="col-auto" style="color:grey">
-          <mat-icon style="color:orange; margin-right:10px; font-size:40px; width:50px; height:50px; line-height:45px">quiz</mat-icon>  
+          <mat-icon style="color:orange; margin-right:10px; font-size:40px; width:50px; height:50px; line-height:45px">quiz</mat-icon>
         </div>
-      </div>                                                            
-                      </div>                                                              
-                                                                        
+      </div>
           </div>
 
-      <div style="display:flex; margin-top:40px; margin-right:50px; ">
+          </div>
 
-          <!-- /////// thi is table ////////////////////////////////////////////////////////////////////////////////////////////// -->
-          <span class="table"style=" border:none ; max-height: 500px; overflow-y: auto">
-          <table mat-table [dataSource]="dataSource" style="border:1px solid grey; ">
 
-                    <!--- Note that these columns can be defined in any order.
-                          The actual rendered columns are set as a property on the row definition" -->
 
-                    <!-- id Column -->
-                    <ng-container matColumnDef="id" style="position:sticky; top:0">
-                      <th mat-header-cell *matHeaderCellDef sticky style="background-color: #3f51b5; color: white;"> Id </th>
-                      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                    </ng-container>
-                  
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                      <th mat-header-cell *matHeaderCellDef sticky style="background-color: #3f51b5; color: white;"> Name </th>
-                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-                  
-                    <!-- age Column -->
-                    <ng-container matColumnDef="age">
-                      <th mat-header-cell *matHeaderCellDef sticky style="background-color: #3f51b5; color: white;"> Age </th>
-                      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
-                    </ng-container>
-                  
-                    <!-- grade Column -->
-                    <ng-container matColumnDef="grade">
-                      <th mat-header-cell *matHeaderCellDef sticky style="background-color: #3f51b5; color: white;"> Grade </th>
-                      <td mat-cell *matCellDef="let element"> {{element.grade}} </td>
-                    </ng-container>
-                  
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns" sticky></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          </span>
 
-          
-            <!--  <div style="padding:20px; display:flex; justify-content:space-between" >
-               <span style="font-weight:bold; color:#3f51b5">Course sold</span>       
+      <div class="tbl-cnt" style="display:flex; margin-top:40px;  ">
+                
+                                <!-- /////// thi is table ////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <div cdkScrollable class="table " style="min-width:350px; max-height:500px; overflow:auto" #scrollContainer>
+                        
+                          <div
+              class="mat-header-row"
+              cdkDropList
+              sticky
+              [cdkDropListData]="displayedColumns"
+              cdkDropListOrientation="horizontal"
               
+              (cdkDropListDropped)="dropColumn($event)"
+              style="display: flex; width:100%">
+                        
+              <div  mat-cell
+                *ngFor="let column of displayedColumns"
+                cdkDrag
+                sticky
+                style="cursor: move; font-weight: normal;flex: 1; padding: 16px; justify-content:space-evenly;  ">
+                {{ column }}
+              </div>
+            </div>
+
+
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 drag-preview-table" cdkDropList (cdkDropListDropped)="dropTable($event)">
+            
+            
+              <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column" >
+                <th mat-header-cell *matHeaderCellDef ></th>
+                <td mat-cell *matCellDef="let element" class="drag-preview-cell"> {{ element[column] }} </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns" style="display:none"></tr>
+              <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+              cdkDrag
+              [class.no-click]="true"
+              (click)="$event.stopPropagation()"
+              [cdkDragData]="row"
+              (cdkDragStarted)="onDragStart()"
+              (cdkDragEnded)="onDragEnd()"
+              class="draggable-row">
+            
+            </tr>
+
+            </table>
+
+
+
+
+            <!-- Paginator -->
+            <mat-paginator
+              [length]="totalItems"
+              [pageSize]="limit"
+              [pageSizeOptions]="[5, 10, 20]"
+              showFirstLastButtons
+              (page)="onPageChange($event)">
+            </mat-paginator>
+          </div>
+
+
+
+            <!--  <div style="padding:20px; display:flex; justify-content:space-between" >
+               <span style="font-weight:bold; color:#3f51b5">Course sold</span>
+
                product sold csrd///////////////////////////////////////////////////////////////////////////////////////////////////
                <div> -->
-                <span style="display:flex; margin-left:50px">
+                <span class="prdt-card" style="display:flex; margin-left:auto">
                   <span class="products-sold-card" >
                       <div class="card-header">
                         <span>Products Sold</span>
@@ -237,7 +276,7 @@
                           <option>Day</option>
                         </select>
                       </div>
-                    
+
                       <div class="product">
                         <div class="label">
                           <span>Object oriented programing</span>
@@ -245,7 +284,7 @@
                         </div>
                         <div class="progress-bar orange" style="width: 75%;"></div>
                       </div>
-                    
+
                       <div class="product">
                         <div class="label">
                           <span>Problem solving</span>
@@ -253,7 +292,7 @@
                         </div>
                         <div class="progress-bar green" style="width: 75%;"></div>
                       </div>
-                    
+
                       <div class="product">
                         <div class="label">
                           <span>Artificial Inteligence</span>
@@ -261,7 +300,7 @@
                         </div>
                         <div class="progress-bar red" style="width: 75%;"></div>
                       </div>
-                    
+
                       <div class="product">
                         <div class="label">
                           <span>Machine Learning</span>
@@ -269,7 +308,7 @@
                         </div>
                         <div class="progress-bar blue" style="width: 75%;"></div>
                       </div>
-                    
+
                       <div class="product">
                         <div class="label">
                           <span>Cloud Computing</span>
@@ -277,25 +316,21 @@
                         </div>
                         <div class="progress-bar green" style="width: 75%;"></div>
                       </div>
-                    
+
                       <div class="view-more">View More →</div>
                   </span>
                 </span>
-                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////<mat-form-field class="small-select" style="overflow:hidden; z-zindex:+1">
-                  <mat-label>Favorite food</mat-label>
-                  <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">style="color:SlateBlue"
-                      {{ food.viewValue }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field> -->
-                
-              
-          
-      </div>  
-      <button class="add-student" mat-raised-button color="primary" (click)="openAddStudentDialog()">Add Student</button>
+                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////<mat-form-field class="small-select" style="overflow:hidden; z-zindex:+1"-->
+
+
+
+
+      </div>
+      <div class="add-student">
+      <button  mat-raised-button color="primary" (click)="openAddStudentDialog()">Add Student</button>
+      </div>
     </div>
-    
+
 
   </mat-drawer-content>
 </mat-drawer-container>

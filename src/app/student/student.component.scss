@@ -69,3 +69,109 @@ app-header{
 mat-drawer-content {
   height: 100%;
 }
+
+
+
+
+
+.cnt {
+  background-color: lightblue;
+  min-height: 100vh; /* Infinite height isn't valid. This sets it to fill the screen */
+  position: absolute;
+  //display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 25px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  gap:20px;
+}
+
+.homdash{
+  display:flex;
+  justify-content:space-between;
+  height:50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.simple-form {
+  width: 300px;
+  height:300px;
+  margin:10px 0px 0px 50px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.simple-form h2 {
+  text-align: center;
+}
+
+.simple-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.simple-form input {
+  padding: 6px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.simple-form button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3f51b5;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.simple-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+.container-2{
+  display:flex;
+
+}
+
+.repeat{
+  height:auto;
+  width:100%;
+  margin:5% 5% 0% 0%;
+  padding:5%;
+  background-color:white;
+  border:1px solid grey;
+  border-radius:50px;
+
+}
+
+
+
+
+
+
+

@@ -15,7 +15,7 @@
       <img matButton [matMenuTriggerFor]="menu" src="/assets/images/profile.png" width="30" height="30" style="border-radius:50%">
       <mat-menu #menu="matMenu">
       <ng-template matMenuContent>
-        
+
         <button mat-menu-item><mat-icon >settings</mat-icon> Settings</button>
         <button mat-menu-item><mat-icon >help</mat-icon> Help</button>
         <button mat-menu-item><mat-icon >history_toggle_off</mat-icon> Activity log</button>
@@ -25,6 +25,10 @@
       </ng-template>
       </mat-menu>
     </a>
-    <span style="font-weight:normal; margin-left:10px; margin-right:20px; font-size:15px">Charlotte </span>
+    <span class="pname" [ngStyle]="role === 'admin' ? { 'margin-right': '0px' } : {}"
+ style="font-weight:normal; margin-left:10px; margin-right:20px; font-size:15px">{{userName|usernamecase}}</span>
+    <span *ngIf="role === 'admin'" class="badge" style="margin-left:0px; margin-right:5px">✅</span>
+
    </div>
 </mat-toolbar>
+

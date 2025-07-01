@@ -8,8 +8,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SearchBarComponent {
  searchTerm: string = '';
 
+ itemList = ['Students', 'Staffs', 'Dashboard', 'Attendance'];
+ seearch = '';
+  
+
   // Use @Output to emit the search term to the parent component (e.g., HeaderComponent)
-  @Output() search = new EventEmitter<string>();
+  @Output() search = new EventEmitter<any>();
 
   onSearch(): void {
     if (this.searchTerm.trim()) { // Only emit if the search term is not empty

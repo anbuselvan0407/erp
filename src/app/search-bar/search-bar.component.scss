@@ -2,7 +2,9 @@
     display: flex;
     align-items: center;
      margin-right:30px;
-    
+    position:sticky;
+    top:0px;
+    z-index:100;
     // Add margin if needed to space it from other header elements
     // margin-left: 20px;
 }
@@ -47,4 +49,12 @@
 
 #headerSearchButton:hover {
     color: #dfe1e6; // Example hover color
+}
+
+.item{
+    height:auto;
+    width:auto;
+    background-color:white;
+    color:black;
+    font-weight:normal;
 }
