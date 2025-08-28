@@ -1,31 +1,5 @@
 <mat-drawer-container class="example-container">
-  <!-- <mat-drawer class="sid" mode="side" opened>
-    <mat-toolbar color="primary">
-      <mat-icon class="schoolicon " aria-hidden="false" aria-label="Example home icon" fontIcon="school"></mat-icon>
-      <span>  ABC School</span>
-    </mat-toolbar> -->
-    <!-- <mat-list>
-     <mat-list-item class="matlist1"><mat-icon class="schoolicon " aria-hidden="false" aria-label="Example home icon" fontIcon="space_dashboard"></mat-icon>Dashboard</mat-list-item>
-     <mat-divider></mat-divider>
-     <div>
-     <mat-list-item class="matlist2"><p class="feature">Features</p></mat-list-item>
-      <mat-list-item> <p><mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="auto_stories"></mat-icon>Stories</p></mat-list-item>
-      <mat-list-item> <p><mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="news"></mat-icon>News</p></mat-list-item>
-      <mat-list-item> <p><mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="quiz"></mat-icon>Quizzes</p></mat-list-item>
-     </div>
-     <mat-divider></mat-divider>
-     <mat-list-item>Item 3</mat-list-item>
-    </mat-list> -->
-    <!-- <ul>
-      <li>Dashboard</li>
-      <hr class="sidebar-divider">
-      <p>Features</>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul> -->
-  <!-- </mat-drawer> -->
+
 <mat-drawer #drawer class="sid" mode="side" opened>
   <mat-toolbar color="primary">
     <mat-icon fontIcon="school"></mat-icon>
@@ -197,20 +171,20 @@
 
 
       <div class="tbl-cnt" style="display:flex; margin-top:40px;  ">
-                
+
                                 <!-- /////// thi is table ////////////////////////////////////////////////////////////////////////////////////////////// -->
             <div cdkScrollable class="table " style="min-width:350px; max-height:500px; overflow:auto" #scrollContainer>
-                        
+
                           <div
               class="mat-header-row"
               cdkDropList
               sticky
               [cdkDropListData]="displayedColumns"
               cdkDropListOrientation="horizontal"
-              
+
               (cdkDropListDropped)="dropColumn($event)"
               style="display: flex; width:100%">
-                        
+
               <div  mat-cell
                 *ngFor="let column of displayedColumns"
                 cdkDrag
@@ -223,13 +197,13 @@
 
 
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 drag-preview-table" cdkDropList (cdkDropListDropped)="dropTable($event)">
-            
-            
+
+
               <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column" >
                 <th mat-header-cell *matHeaderCellDef ></th>
                 <td mat-cell *matCellDef="let element" class="drag-preview-cell"> {{ element[column] }} </td>
               </ng-container>
-            
+
               <tr mat-header-row *matHeaderRowDef="displayedColumns" style="display:none"></tr>
               <tr
               mat-row
@@ -241,7 +215,7 @@
               (cdkDragStarted)="onDragStart()"
               (cdkDragEnded)="onDragEnd()"
               class="draggable-row">
-            
+
             </tr>
 
             </table>
@@ -255,7 +229,7 @@
               [pageSize]="limit"
               [pageSizeOptions]="[5, 10, 20]"
               showFirstLastButtons
-              (page)="onPageChange($event)">
+              (page)="onPagechange($event)">
             </mat-paginator>
           </div>
 

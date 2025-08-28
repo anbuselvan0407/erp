@@ -20,8 +20,8 @@ import { AuthService } from '../services/auth.service';
 export interface Student {
   sno?:number;
   id: number;
-  name: string;
   age: number;
+  name: string;
   grade: string;
   [key: string]: any;
 }
@@ -48,7 +48,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
   page = 1;
   limit = 5;
 
-  
+
 
   isDragging: boolean = false;
 
@@ -66,7 +66,7 @@ export class SidenavComponent implements OnInit, AfterViewInit {
     grade: 'Grade'
   };
 
-  
+
 
 
   constructor(
@@ -105,7 +105,7 @@ onMouseMove(event: MouseEvent) {
     this.scrolling = false;
   }
 }
-  
+
 
 startSmoothScroll() {
   if (this.scrolling || !this.scrollDirection) return;
@@ -150,13 +150,11 @@ fetchStudents(page: number, limit: number): void {
     });
 }
 
-getSerialNumber(index: number): number {
-  return index + 1 + (this.paginator?.pageIndex ?? 0) * (this.paginator?.pageSize ?? 0);
-}
 
 
 
-  onPageChange(event: PageEvent): void {
+
+  onPagechange(event: PageEvent): void {
     this.page = event.pageIndex + 1;
     this.limit = event.pageSize;
     this.fetchStudents(this.page, this.limit);
@@ -205,7 +203,7 @@ getSerialNumber(index: number): number {
 
 onDragStart() {
   this.isDragging = true;
-  
+
 }
 
 onDragEnd() {

@@ -11,17 +11,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatTableModule} from '@angular/material/table';
-import {MatSelectModule} from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -32,25 +32,17 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddStudentDialogComponent } from './add-student-dialog/add-student-dialog.component';
-import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { DragndropComponent } from './dragndrop/dragndrop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import {
-  CdkDrag,
-  CdkDropList,
-} from '@angular/cdk/drag-drop';
-import {NgFor} from '@angular/common';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { NgFor } from '@angular/common';
 import { HighlightDirective } from './highlight.directive';
 import { RepeatDirective } from './directives/repeat.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { UsernamecasePipe } from './pipes/usernamecase.pipe';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { TableComponent } from './table/table.component';
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -70,8 +62,7 @@ import { TableComponent } from './table/table.component';
     FilterPipe,
     UsernamecasePipe,
     StudentFormComponent,
-    TableComponent
-
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +73,7 @@ import { TableComponent } from './table/table.component';
     MatSidenavModule,
     MatListModule,
     MatDividerModule,
-    MatButtonModule ,
+    MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
@@ -91,28 +82,25 @@ import { TableComponent } from './table/table.component';
     FormsModule,
     MatMenuModule,
     MatDialogModule,
-    HttpClientModule ,
+    HttpClientModule,
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
     DragDropModule,
-
     CdkDrag,
     CdkDropList,
     NgFor,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-   exports: [RouterModule],
-providers: [
+  exports: [RouterModule],
+  providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }
-  ]
-,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
-
-
 })
-export class AppModule { }
+
+export class AppModule {}
